@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'pubsub-test';
 
   ngOnInit() {
+    // Esto debería ir en main.ts
     Amplify.configure({
       Auth: {
         region: "us-west-1",
@@ -26,6 +27,7 @@ export class AppComponent {
       })
     );
 
+    // Esto debería ser un servicio
     PubSub.subscribe('testTopic').subscribe({
       next: (data) => console.log(data),
       error: (error) => console.error(error),
